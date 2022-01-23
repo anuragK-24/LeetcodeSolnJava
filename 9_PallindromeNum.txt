@@ -20,3 +20,21 @@ class Solution {
         return ans;
     }
 }
+
+//simple approach, it's much faster than above string approach
+
+class Solution {
+    public boolean isPalindrome(int x) {
+        int temp=x;
+        int p =(int)Math.log10(x)+1;
+        if(x<0){
+            return false;
+        }
+        int rx=0;
+       for (int i=p;i>0;i--){
+           rx=(10*rx)+temp%10;
+           temp=temp/10;
+       }
+       return rx==x;
+    }
+}
