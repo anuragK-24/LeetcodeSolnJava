@@ -1,0 +1,22 @@
+//solution through string concept
+
+class Solution {
+    public boolean isPalindrome(int x) {
+        boolean ans=true;
+        if(x<0 ){
+            ans = false;
+            return ans;            
+        }
+        String s=Integer.toString(x);
+        StringBuilder input1 = new StringBuilder();
+
+        // append a string into StringBuilder input1
+        input1.append(s);
+        
+        // reverse StringBuilder input1
+        input1.reverse();
+        String rs=input1.toString();
+        ans=s.equals(rs);
+        return ans;
+    }
+}
