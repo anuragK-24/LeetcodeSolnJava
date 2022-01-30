@@ -1,5 +1,10 @@
-var rotated = nums.clone();
-	var n = nums.length;
-	k %= n;
-	for (var i = 0; i < n; i++)
-		nums[(i + k) % n] = rotated[i];
+//using modulo effectively to improve the time complexity
+class Solution {
+    public void rotate(int[] nums, int k) {
+        int[] rotated = nums.clone();
+        int n = nums.length;
+        k %= n;
+        for (int i = 0; i < n; i++)
+            nums[(i + k) % n] = rotated[i];
+    }
+}
