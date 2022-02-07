@@ -1,0 +1,22 @@
+//using stack
+class Solution {
+    public String makeGood(String s) {
+        
+      int d1 = (int) ('a' - 'A');
+        int d2 = (int) ('A' - 'a');
+        Stack<Character> stk = new Stack<>();
+        for(Character c: s.toCharArray()) {
+            if(!stk.isEmpty() && (c - stk.peek() == d1 || c - stk.peek() == d2)) {
+                stk.pop();
+            } else {
+                stk.push(c);
+            }
+        }
+        StringBuilder res = new StringBuilder();
+        while(!stk.isEmpty()) {
+            res.insert(0, stk.pop());
+        }
+        return res.toString();
+    
+    }
+}
