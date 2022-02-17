@@ -1,0 +1,30 @@
+class Solution {
+    public List<List<Integer>> combinationSum(int[] candidates, int target) {
+        List<List<Integer>>[] dp = new ArrayList[target+1];
+        
+        List<List<Integer>> n = new ArrayList<>();
+        n.add(new ArrayList<>());
+        dp[0] = n;
+        
+        for(int candidate: candidates){
+            for(int i=candidate; i<=target; i++){
+                if(dp[i-candidate] != null){
+                    List<List<Integer>> badiList = dp[i-candidate];
+                    List<List<Integer>> nayiList = new ArrayList<>();
+                    
+                    for(List<Integer> list: badiList){
+                        List<Integer> al = new ArrayList<>(list);
+                        al.add(candidate);
+                        nayiList.add(al);
+                    }
+                    if(dp[i] == null){
+                        dp[i] = nayiList;
+                    }else{
+                        dp[i].addAll(nayiList);
+                    }
+                }
+            }
+        }
+        return (dp[target] == null)?new ArrayList<>():dp[target]; 
+    }
+}
